@@ -1,40 +1,28 @@
-let mapIcon,
-  var1,
-  userChoice,
-  var3,
-  userName;
-
-document.getElementsByClassName("startbutton")[0].addEventListener("click", function() {
-  setName();
+function startButton() {
   document.getElementsByClassName("header")[0].style.display = "block";
   document.getElementsByTagName("section")[0].style.display = "flex";
   document.getElementsByClassName("startscreen")[0].style.display = "none";
-});
+  nameInput = prompt("Enter your username: ");
+  localStorage.userName = nameInput;
+}
 
-document.getElementsByTagName("img")[0].addEventListener("click", function() {
+function mapFunction() {
   document.getElementsByTagName("div")[0].style.display = "none";
   document.getElementsByTagName("section")[0].style.display = "none";
-  mapIcon = true;
-});
+  localStorage.mapIcon = true;
+}
 
-document.getElementsByTagName("img")[1].addEventListener("click", function() {
+function bowFunction() {
   document.getElementsByTagName("div")[0].style.display = "none";
   document.getElementsByTagName("section")[0].style.display = "none";
-  var1 = true;
-});
+}
 
-document.getElementsByTagName("img")[2].addEventListener("click", function() {
+function wandFunction() {
   document.getElementsByTagName("div")[0].style.display = "none";
   document.getElementsByTagName("section")[0].style.display = "none";
-  userChoice = 0;
-});
+}
 
-document.getElementsByTagName("img")[3].addEventListener("click", function() {
+function backFunction() {
   document.getElementsByTagName("div")[0].style.display = "none";
   document.getElementsByTagName("section")[0].style.display = "none";
-  var3 = true;
-});
-
-function setName() {
-  userName = prompt("Enter your username: ");
 }
