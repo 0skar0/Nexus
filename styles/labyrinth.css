@@ -1,0 +1,65 @@
+body,
+html {
+  margin: 0 auto;
+  height: 100%;
+  font-family: "Charm", cursive;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+#startscreen {
+  margin: 0 auto;
+  text-align: center;
+  width: 600px;
+  flex: 1 0 auto;
+}
+
+#canvas {
+  border: 1px solid darkgray;
+  display: none;
+  margin: 10px;
+}
+
+#gametitle,
+#footer,
+#timer {
+  text-align: center;
+}
+
+.feedback {
+  margin: 0 auto;
+}
+
+.feedback p {
+  font-family: "Roboto", sans-serif;
+}
+
+#gameover,
+#foundhammer,
+#needhammer,
+#finished,
+a {
+  font-size: 18px;
+  display: none;
+  text-align: center;
+  margin: 20px;
+}
+
+#startscreen p {
+  font-family: "Roboto", sans-serif;
+}
+
+#timer {
+  font-family: "Charm", cursive;
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0 0 20px;
+}
+
+#footer {
+  flex-shrink: 0;
+  height: 35px;
+}
