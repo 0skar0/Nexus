@@ -103,8 +103,11 @@ function init() {
     } else if ((playerPosition == "59") && (seconds > 0)) {
       needHammer();
     }
+    drawPlayer();
+  }
 
-    // Draw walls and player
+  // Draw walls and player
+  function drawPlayer() {
     for (let i = 0; i < arrayLabyrinth.length; i++) {
       for (let x = 0; x < arrayLabyrinth[i].length; x++) {
         if (arrayLabyrinth[i][x] === 1) {
