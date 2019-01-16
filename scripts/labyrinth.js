@@ -33,7 +33,7 @@ function init() {
   };
 
   // Merge objects
-  let playerLabyrinth = Object.assign(firstObject, secondObject);
+  let playerCoordinates = Object.assign(firstObject, secondObject);
 
   // Set canvas size
   let canvas = document.getElementById("canvas");
@@ -68,8 +68,8 @@ function init() {
   function labyrinthGame() {
     // Loop over object and add values to string
     let playerPosition = "";
-    for (let inProperty in playerLabyrinth) {
-      playerPosition += playerLabyrinth[inProperty];
+    for (let inProperty in playerCoordinates) {
+      playerPosition += playerCoordinates[inProperty];
     }
 
     // Check timer and coordinates
@@ -117,7 +117,7 @@ function init() {
           // Draw player
           let playerImage = new Image();
           playerImage.onload = function() {
-            ctx.drawImage(playerImage, playerLabyrinth.x * 60, playerLabyrinth.y * 60, 60, 60);
+            ctx.drawImage(playerImage, playerCoordinates.x * 60, playerCoordinates.y * 60, 60, 60);
           };
           playerImage.src = "../images/64/helmet.png";
         }
@@ -127,18 +127,18 @@ function init() {
 
   // Change coordinates based on keys pressed
   function movePlayer(event) {
-    if ((event.which == 38) && checkWalls(playerLabyrinth.x, playerLabyrinth.y - 1)) {
+    if ((event.which == 38) && checkWalls(playerCoordinates.x, playerCoordinates.y - 1)) {
       clearPlayer();
-      playerLabyrinth.y--;
-    } else if ((event.which == 40) && checkWalls(playerLabyrinth.x, playerLabyrinth.y + 1)) {
+      playerCoordinates.y--;
+    } else if ((event.which == 40) && checkWalls(playerCoordinates.x, playerCoordinates.y + 1)) {
       clearPlayer();
-      playerLabyrinth.y++;
-    } else if ((event.which == 37) && checkWalls(playerLabyrinth.x - 1, playerLabyrinth.y)) {
+      playerCoordinates.y++;
+    } else if ((event.which == 37) && checkWalls(playerCoordinates.x - 1, playerCoordinates.y)) {
       clearPlayer();
-      playerLabyrinth.x--;
-    } else if ((event.which == 39) && checkWalls(playerLabyrinth.x + 1, playerLabyrinth.y)) {
+      playerCoordinates.x--;
+    } else if ((event.which == 39) && checkWalls(playerCoordinates.x + 1, playerCoordinates.y)) {
       clearPlayer();
-      playerLabyrinth.x++;
+      playerCoordinates.x++;
     }
     labyrinthGame();
     event.preventDefault();
@@ -151,10 +151,10 @@ function init() {
 
   // Clear image from previous player position
   function clearPlayer() {
-    ctx.clearRect(playerLabyrinth.x * 60, playerLabyrinth.y * 60, 60, 60);
+    ctx.clearRect(playerCoordinates.x * 60, playerCoordinates.y * 60, 60, 60);
     ctx.fillStyle = "black";
-    ctx.fillRect(playerLabyrinth.x * 60, playerLabyrinth.y * 60, 60, 60);
-    if ((playerLabyrinth.x == 5 && playerLabyrinth.y == 9) && (arrayLabyrinth[6][0] != 0)) {
+    ctx.fillRect(playerCoordinates.x * 60, playerCoordinates.y * 60, 60, 60);
+    if ((playerCoordinates.x == 5 && playerCoordinates.y == 9) && (arrayLabyrinth[6][0] != 0)) {
       let exitImage = new Image();
       exitImage.onload = function() {
         ctx.drawImage(exitImage, 300, 540, 60, 60);
@@ -173,7 +173,7 @@ function init() {
       document.getElementsByTagName("a")[1].style.display = "block";
     }, 3000);
     document.removeEventListener("keydown", movePlayer);
-    Object.seal(playerLabyrinth);
+    Object.seal(playerCoordinates);
     localStorage.removeItem("mapIcon");
   }
 
@@ -248,7 +248,7 @@ function init() {
         setTimeout(function() {
           document.getElementById("timer").style.display = "none";
         }, 1500);
-        while (seconds == 0 && playerLabyrinth.x != 5 && playerLabyrinth.y != 9 && arrayLabyrinth[6][0] != 0) {
+        while (seconds == 0 && playerCoordinates.x != 5 && playerCoordinates.y != 9 && arrayLabyrinth[6][0] != 0) {
           gameOver();
         }
       }
@@ -299,7 +299,7 @@ function init() {
     document.getElementById("gametitle").style.display = "none";
     document.getElementById("canvas").style.display = "none";
     document.getElementById("timer").style.display = "none";
-    Object.freeze(playerLabyrinth);
+    Object.freeze(playerCoordinates);
     document.removeEventListener("keydown", movePlayer);
     document.removeEventListener("mouseover", styleFunction);
   }
