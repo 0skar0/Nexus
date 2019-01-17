@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<title>Breakout</title>
+  <meta charset="utf-8">
+	<link href="https://fonts.googleapis.com/css?family=Charm%7CRoboto" rel="stylesheet">
+	<link rel="stylesheet"
+	              href="breakout.css"
+	              type="text/css">
+
+</head>
+<body>
+	<div id="next">
+		<button id ="nextgame" onclick="location.href='../memory.html'" type="button">Nästa spel!</button>
+	</div>
+	<div id="restart">
+		<button id ="restartgame" onclick="location.href='../index.html'" type="button">Restart!</button>
+	</div>
+  <div id ="spel">
+		<div id ="knappar">
+			<button onmousedown ="draw()">Start</button>
+			<button onmousedown ="togglePause()">
+			Paus</button>
+		</div>
+  <canvas id="myCanvas" width="600" height="600"></canvas>
+	</div>
+<script src="breakout.js"></script>
+</body>
+</html>
