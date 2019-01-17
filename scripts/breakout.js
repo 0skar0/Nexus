@@ -29,7 +29,7 @@ var score = 0;
 var endScore = score;
 //var livesP = prompt("Hur många liv vill du börja med?\n Välj mellan 1-3.");
 var livesArr = [];
-var livesP = 3;
+var livesP = 1;
 var lives;
 
 while (livesP != 1 || livesP != 2 || livesP != 3) {
@@ -120,7 +120,6 @@ function collisionDetection() {
             finalScore.style.fontFamily = "Charm, cursive";
             finalScore.style.fontSize = "25px";
             finalScore.style.textAlign = "center";
-            hideRestart();
             showNext();
           }
         }
@@ -193,29 +192,29 @@ function hideCanvas() {
 }
 
 
-//för att dölja restart button
-function hideRestart() {
-  var h = document.getElementById("restart");
-  if (h.style.display === "none") {
-    h.style.display = "block";
-  } else {
-    h.style.display = "none";
-  }
-}
-
-
-//för att dölja next game
+//för att dölja next
 function hideNext() {
-  var o = document.getElementById("next");
-  if (o.style.display === "none") {
-    o.style.display = "block";
+  var k = document.getElementById("next");
+  if (k.style.display === "none") {
+    k.style.display = "block";
   } else {
-    o.style.display = "none";
+    k.style.display = "none";
   }
 }
 
 
-//för att visa next button
+//för att dölja restart
+function hideRestart() {
+  var k = document.getElementById("restart");
+  if (k.style.display === "none") {
+    k.style.display = "block";
+  } else {
+    k.style.display = "none";
+  }
+}
+
+
+//för att visa next
 function showNext() {
   var l = document.getElementById("next");
   if (l.style.display === "none") {
@@ -226,13 +225,13 @@ function showNext() {
 }
 
 
-//för att visa restart button
+//för att visa restart
 function showRestart() {
-  var u = document.getElementById("restart");
-  if (u.style.display === "none") {
-    u.style.display = "inline";
+  var l = document.getElementById("restart");
+  if (l.style.display === "none") {
+    l.style.display = "inline";
   } else {
-    u.style.display = "block";
+    l.style.display = "block";
   }
 }
 
@@ -262,9 +261,8 @@ console.log(newScore);
 };
 
 
-//hideButtons();
-hideRestart();
 hideNext();
+hideRestart();
 drawStart();
 
 
@@ -294,14 +292,13 @@ function draw() {
         scoreArr();
         ctx.clearRect(0, 0, canvas.width, canvas.height)
         hideCanvas();
-        var div = document.querySelector(".restart");
+        var div = document.querySelector(".next");
         var endScore = document.createElement("p");
         endScore.textContent = "Du förlorade! Du fick " + score + " poäng. Bättre lycka nästa gång!";
         document.body.appendChild(endScore);
         endScore.style.fontFamily = "Charm, cursive";
         endScore.style.fontSize = "25px";
         endScore.style.textAlign = "center";
-        hideNext();
         showRestart();
       }
       else {
