@@ -25,7 +25,7 @@ var displayMessage;
 var whichMessageToDisplay;
 
 // Kolla vilket item användaren valt. Fördel om hen valt "kniv (0)".
-
+var userChoice = 0;
 if (userChoice === 1) {
   var advantage = document.querySelector(".deathCard");
   advantage.classList.add("disabled", "open", "match");
@@ -228,6 +228,7 @@ function scoreFunction() {
 // om man klarat spelet körs denna funktion
 function winner() {
   if (matchedCard.length >= 8) {
+    localStorage.clear();
     removeListeners();
     var getContainer = document.querySelector("#container");
     getContainer.remove();
@@ -246,6 +247,7 @@ function winner() {
 
 // om man inte klarat spelet körs denna.
 function tryAgain() {
+  localStorage.clear();
   var getStartButton = document.querySelector(".startButton");
   getStartButton.innerHTML = "Try Again!";
   var getLoserBox = document.querySelector(".winner-box");
