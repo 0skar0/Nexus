@@ -25,7 +25,7 @@ var displayMessage;
 var whichMessageToDisplay;
 
 // Kolla vilket item användaren valt. Fördel om hen valt "kniv (0)".
-var userChoice = 0;
+
 if (userChoice === 1) {
   var advantage = document.querySelector(".deathCard");
   advantage.classList.add("disabled", "open", "match");
