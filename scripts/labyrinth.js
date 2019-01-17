@@ -291,7 +291,7 @@ function init() {
     document.addEventListener("keydown", movePlayer);
     document.getElementById("startscreen").style.display = "none";
     document.getElementById("footer").style.display = "none";
-    document.getElementById("canvas").style.display = "block";
+    document.getElementById("wrapper").style.display = "block";
   };
 
   // Hide game

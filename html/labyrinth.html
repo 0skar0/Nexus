@@ -14,19 +14,21 @@
     <p>The roof is collapsing and you have to get out. The green poison will kill you and you need the hammer to break through the wall at the marked spot. Use the arrow keys to move the player around the labyrinth.</p>
     <input id="startbutton" type="button" value="Start Labyrinth Game" />
   </div>
-  <p align="center">
-    <canvas id="canvas" width="600" height="600" align="right"></canvas>
-  </p>
-  <div class="feedback">
-    <p id="timer"></p>
-    <p id="needhammer">"You need the hammer to get out, please go back!"</p>
-    <p id="foundhammer">You found the hammer!</p>
-    <p id="finished">Well done! You got out in time.</p>
-    <p id="gameover">Game Over</p>
-  </div>
-  <a href="breakout.html">Continue to next game</a>
-  <a href="../index.html">Restart game</a>
   <footer id="footer">Icons by "Ravenmore" (http://dycha.net)</footer>
+  <div id="wrapper">
+    <p id="para" align="center">
+      <canvas id="canvas" width="600" height="600" align="right"></canvas>
+    </p>
+    <div class="feedback">
+      <p id="timer"></p>
+      <p id="needhammer">"You need the hammer to get out, please go back!"</p>
+      <p id="foundhammer">You found the hammer!</p>
+      <p id="finished">Well done! You got out in time.</p>
+      <p id="gameover">Game Over</p>
+    </div>
+    <a href="breakout.html">Continue to next game</a>
+    <a href="../index.html">Restart game</a>
+  </div>
   <script src="../scripts/labyrinth.js" charset="utf-8"></script>
 </body>
 
