@@ -246,7 +246,7 @@ function winner() {
 
 // om man inte klarat spelet körs denna.
 function tryAgain() {
-  localStorage.removeItem("userChoice");
+  localStorage.clear();
   var getStartButton = document.querySelector(".startButton");
   getStartButton.innerHTML = "Try Again!";
   var getLoserBox = document.querySelector(".winner-box");
