@@ -1,0 +1,47 @@
+body {
+  font-family: "Charm", cursive;
+}
+
+#next, #restart {
+  height: 50px;
+  width: 600px;
+  margin-top: 50px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#nextgame, #restartgame {
+  height: 35px;
+  width: 110px;
+  font-size: 18px;
+  border-radius: 5px;
+  background-color: white;
+  border: 1px darkgrey;
+  border-style: solid;
+  position: absolute;
+  top: 200px;
+  right: 47%;
+}
+
+#spel {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+#knappar {
+  display: flex;
+  flex-direction: column;
+}
+
+button {
+  font-family: "Charm", cursive;
+}
+
+  canvas {
+    border-left: 1px solid grey;
+    border-right: 1px solid grey;
+    border-top: 1px solid grey;
+    background-image: url(https://static01.nyt.com/images/2016/03/22/science/22TB-Equinox/22TB-Equinox-articleLarge.jpg?quality=75&auto=webp&disable=upscale);
+  }
