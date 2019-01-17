@@ -49,6 +49,7 @@ body {
   text-transform: uppercase;
   color: white;
   text-shadow: 3px 3px 8px #BF7F00, -3px -3px 8px #BF7F00;
+  letter-spacing: 3px;
 }
 
 #inputBox {

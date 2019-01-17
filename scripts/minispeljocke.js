@@ -1,6 +1,6 @@
 //////////////////////////////////////Deklarationer//////////////////////////////
 
-const list = [ 
+const list = [
   ['svärd', 'fantasy', 'dvärg', 'mördare', 'orcher', 'hobbit', 'hammare', 'demon', 'balrog',
     'ödla', 'svampar', 'spjut', 'barbar', 'bard', 'munk', 'stjärnor', 'måne', 'örter', 'spöke', 'båt'
   ],
@@ -8,7 +8,7 @@ const list = [
     'xenofob', 'lärling', 'dödsjuk', 'spännande', 'pervers', 'excentrisk'
   ],
   ['hackerattackerna', 'mahognyskrivbord', 'ödesstämningarna', 'ölbuteljsetikett', 'tablettmissbruk',
-    'överljudshastighet', 'rabarberpajerna', 'narkolepsifallen', 'packningsapparat', 'yrkesdemonstrant'
+    'pixelfebersyptom', 'rabarberpajerna', 'narkolepsifallen', 'packningsapparat', 'yrkesdemonstrant'
   ]
 ];
 let randomVal, word, newGameOr, list2 = [],
@@ -18,11 +18,10 @@ let randomVal, word, newGameOr, list2 = [],
   newGameBtn, hiList = [{}, {}, {}],
   backpack,
   tickTock, theDifficulty, status = true,
-  ding = new Audio('../jbildmusik/ding.wav'),
   music = new Audio('../jbildmusik/backmusic.mp3');
-castle = new Audio('../jbildmusik/castleDoor.mp3');
-gameOverSound = new Audio('../jbildmusik/gameover.mp3');
-fanfare = new Audio('../jbildmusik/fanfare.mp3');
+  castle = new Audio('../jbildmusik/castleDoor.mp3');
+  gameOverSound = new Audio('../jbildmusik/gameover.mp3');
+  fanfare = new Audio('../jbildmusik/fanfare.mp3');
 
 avatar = localStorage.getItem('userName');
 backpack = localStorage.getItem('backIcon');
@@ -88,7 +87,7 @@ function checkBackPack() { //om man valde backpack i början får man plus 10 se
 function enterTheCastle() { //sätter igång vindbryggan och musiken startar.
 
   playCastle();
-  music.play();
+  playTheMusic();
   event.stopPropagation()
   $('#gate').animate({
     top: '-100%'
@@ -136,6 +135,10 @@ function uppdateHiScore() { //ger information till highscorelistan.
 
 }
 
+
+function playTheMusic() { //sätter på backgrundsmusiken
+  music.play();
+}
 
 function showHighScore() { // uppdaterar beroende på vilken playthrough man är
 
@@ -240,31 +243,48 @@ function goAgain() { //ny spelrunda om man kört igenom spelet 3 gånger med sta
     clearInput(); //clearar för ny runda.
     playThrough++; //plussar på rundan så att highscore listan får ny entry.
     timer = 11; // sätter tid så att intervalen inte stoppar spelet.
-    music.play(); //sätter igång backgrundmusiken igen.
+    playTheMusic(); //sätter igång backgrundmusiken igen.
     status = true //togglar highscore listan så att den inte är öppen vid nästa playThrough
     startThegame();
 
   }
 }
 
+function winOrNotMusic() { //broende på vilken poäng man fick spelas ett visst ljud.
+  if (player.score >= 30) {
+    fanfare.play();
+  }
 
+  if (player.score < 30) {
+    gameOverSound.play();
+  }
+}
+
+function pauseMusic() { //pausa backgrundsmusiken
+  music.pause();
+}
+
+function clearIt() { //clearar local storage
+  localStorage.clear();
+}
 
 function nextScreen() { //bestämmer om man får gå vidare till slutet.
 
-  if (player.score >= 20) {
-    localStorage.clear();
+  if (player.score >= 30) {
+
+    clearIt();
     clearAllInterval();
-    alert('Du klarade spelet!');
+    alert(`Yerr a wizard ${avatar}!`);
     window.location = '../html/gameover.html';
 
-  } else if (player.score < 20 && playThrough == 2) {
+  } else if (player.score < 30 && playThrough == 2) {
 
-    localStorage.clear();
+    clearIt();
     clearAllInterval();
-    alert('Du klarade det inte...börjar om');
+    alert('3 försök gjorda, Gör om gör rätt.');
     window.location = '../index.html';
   } else {
-    alert('du måste få minst 20 poäng för att komma vidare');
+    alert('du måste få minst 30 poäng för att komma vidare');
 
   }
 }
@@ -287,9 +307,10 @@ function copyToHighScore() { // kopierar player info till en array med objekt
 
 function checkStatus() {
 
-  if (list2.length <= 0 && theDifficulty == 'trollkarl') { // game over men man vinner.
-    music.pause();
-    fanfare.play();
+  if (list2.length <= 0 && theDifficulty == 'trollkarl') { // game over.
+
+    pauseMusic();
+    winOrNotMusic();
     copyToHighScore();
     clearAllInterval();
     endScreen();
@@ -298,8 +319,8 @@ function checkStatus() {
 
   if (timer <= 0) { //game over.
 
-    music.pause();
-    gameOverSound.play();
+    pauseMusic();
+    winOrNotMusic();
     copyToHighScore();
     clearAllInterval();
     endScreen();
@@ -361,7 +382,6 @@ function checkVal() { //själva spelet.
   word.innerHTML = list2[randomVal];
   if (word.innerHTML === inputBox.value) {
     levelup();
-    ding.play(); //trevligt litet ljud när man skrivit rätt.
     list2.splice(randomVal, 1);
     getRandomNum(); //randomiza nästa ord.
     word.innerHTML = list2[randomVal];
@@ -418,7 +438,7 @@ function difficulty() { // återavnvändbar för att få välja sin svårighetsg
 
   list2 = []; // clearar listan så att ett ny ramlar in.
 
-  theDifficulty = prompt('Välj svårighetsgrad, skriv novis, lärjunge eller trollkarl 10,20,30 sekunders starttid. om man väljer nån av dom lägre kommer man eventuellt till trollkarl. Jag rekommenderar novis. Om du valde ryggsäcken i början så får du extra tid.');
+  theDifficulty = prompt('Välj svårighetsgrad, skriv novis, lärjunge eller trollkarl 10,20,5(trollkarlar är hardcore) sekunders starttid. om man väljer nån av dom lägre kommer man eventuellt till trollkarl.Om du får 30 poäng eller över kan du avsluta spelet! Du har 3 försök. Var beredd på att börja skriva när du stänger denna.');
 
 
 
@@ -450,7 +470,7 @@ function difficulty() { // återavnvändbar för att få välja sin svårighetsg
       for (let i = 0; i < list[2].length; i++) {
         list2.push(list[2][i]);
       }
-      timer += 20;
+      timer += 5;
 
       break;
 
