@@ -27,11 +27,9 @@ var paused = false;
 
 var score = 0;
 var endScore = score;
-//var livesP = prompt("Hur många liv vill du börja med?\n Välj mellan 1-3.");
 var livesArr = [];
 var livesW = 3;
 var livesArrTwo;
-
 
 
 // kollar ifall man har valt mitt item
@@ -344,3 +342,10 @@ function draw() {
     requestAnimationFrame(draw);
   }
 }
+
+//2d arrayer
+var creator = [
+  ["Marcus Andersson"],
+  ["17/1-2019"]
+];
+console.log(""+creator[0][0]+" la den sista pusselbiten till det här spelet "+creator[1][0]+".");
