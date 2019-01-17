@@ -32,6 +32,8 @@ var livesArr = [];
 var livesW = 3;
 var livesArrTwo;
 
+
+
 // kollar ifall man har valt mitt item
 var bowIcon = localStorage.getItem("bowIcon");
 switch (bowIcon) {
