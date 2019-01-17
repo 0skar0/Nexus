@@ -248,7 +248,7 @@ function init() {
         setTimeout(function() {
           document.getElementById("timer").style.display = "none";
         }, 1500);
-        while (seconds == 0 && playerCoordinates.x != 5 && playerCoordinates.y != 9 && arrayLabyrinth[6][0] != 0) {
+        while (seconds == 0 && playerCoordinates.x != 5 && playerCoordinates.y != 9) {
           gameOver();
         }
       }
