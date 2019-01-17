@@ -1,0 +1,93 @@
+body {
+  margin: 0;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #eee;
+}
+
+*{
+  font-family: 'Roboto', sans-serif;
+}
+
+header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 600px;
+}
+
+header h1 {
+  font-family: "Charm", serif;
+  margin-bottom: 0;
+}
+
+.winningPoints, .numberOfMoves {
+  display: inline;
+}
+
+button {
+  height: 35px;
+  width: 120px;
+  font-family: "Charm", serif;
+  font-size: 18px;
+  margin: 10px;
+  border-radius: 5px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.score, .moves {
+  padding-left: 20px;
+}
+
+#container {
+  width: 480px;
+  flex-wrap: wrap;
+  display: none;
+  margin: 0 0 40px 0;
+}
+
+.boxOne img, .boxTwo img, .boxThree img, .boxFour img, .boxFive img, .boxSix img, .boxSeven img, .boxEight img, .boxNine img {
+  margin: 5px;
+  height: 0px;
+  width: 0px;
+}
+
+.boxOne, .boxTwo, .boxThree, .boxFour, .boxFive, .boxSix, .boxSeven, .boxEight, .boxNine {
+  height: 150px;
+  width: 150px;
+  margin: 5px;
+  cursor: pointer;
+  background-color: #252529;
+  transform: scale(1);
+}
+
+.clearBoard{
+  height: 150px;
+  width: 150px;
+  margin: 5px;
+  cursor: pointer;
+  background-color: #252529;
+  transform: scale(1);
+}
+
+.open img {
+  height: 150px;
+  width: 150px;
+  transform: scale(0.80);
+  transition: transform 400ms;
+}
+
+.match img {
+  height: 150px;
+  width: 150px;
+  transform: scale(1.05);
+  transition: transform 300ms;
+}
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.9;
+}
