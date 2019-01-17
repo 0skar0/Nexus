@@ -29,10 +29,26 @@ var score = 0;
 var endScore = score;
 //var livesP = prompt("Hur många liv vill du börja med?\n Välj mellan 1-3.");
 var livesArr = [];
-var livesP = 3;
+//var livesP = 3;
 var lives;
 
-while (livesP != 1 || livesP != 2 || livesP != 3) {
+
+let bowIcon = localStorage.getItem("bowIcon");
+
+// item för mer lives
+switch (bowIcon) {
+case "true":
+  var livesP = 4;
+  break;
+default:
+  livesP = 3;
+  break;
+}
+
+
+
+
+while (livesP != 1 || livesP != 2 || livesP != 3 || livesP !=4) {
   if (livesP == 1 || livesP == 2 || livesP == 3) {
     for (i = livesP; i > 0; i--) {
       livesArr.push(livesP);
@@ -121,6 +137,7 @@ function collisionDetection() {
             finalScore.style.fontSize = "25px";
             finalScore.style.textAlign = "center";
             showNext();
+            localStorage.removeItem("bowIcon");
           }
         }
       }
@@ -187,7 +204,6 @@ function hideCanvas() {
   }
   window.setTimeout(function () {
 		canvas.remove();
-    k.remove();
 	}, 1000);
 }
 
@@ -300,6 +316,7 @@ function draw() {
         endScore.style.fontSize = "25px";
         endScore.style.textAlign = "center";
         showRestart();
+        localStorage.removeItem("bowIcon");
       }
       else {
         x = canvas.width/2;
