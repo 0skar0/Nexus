@@ -16,11 +16,11 @@ let randomVal, word, newGameOr, list2 = [],avatar,
   playThrough = 0,
   newGameBtn, hiList = [{}, {}, {}],backpack,
   tickTock, theDifficulty, status = true,
-  ding = new Audio('jbildmusik/ding.wav'),
-  music = new Audio('jbildmusik/backmusic.mp3');
-  castle = new Audio('jbildmusik/castleDoor.mp3');
-  gameOverSound = new Audio('jbildmusik/gameover.mp3');
-  fanfare = new Audio('jbildmusik/fanfare.mp3');
+  ding = new Audio('../jbildmusik/ding.wav'),
+  music = new Audio('../jbildmusik/backmusic.mp3');
+  castle = new Audio('../jbildmusik/castleDoor.mp3');
+  gameOverSound = new Audio('../jbildmusik/gameover.mp3');
+  fanfare = new Audio('../jbildmusik/fanfare.mp3');
 
 avatar = localStorage.getItem('userName');
 backpack =  localStorage.backIcon;
@@ -396,7 +396,7 @@ function difficulty() { // återavnvändbar för att få välja sin svårighetsg
 
   switch (theDifficulty) {
 
-    checkBackPack(); //om man valde backpack i början får man plus 10 sek.
+    ///////////////checkBackPack(); //om man valde backpack i början får man plus 10 sek.////////////////////
 
     case 'novis':
       level.innerHTML = 'Nivå: Novis';

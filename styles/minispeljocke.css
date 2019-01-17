@@ -6,7 +6,7 @@ body {
   display: flex;
   justify-content: center;
   font-family: 'Charm';
-  background-image: url('jbildmusik/dungeonwall.png');
+  background-image: url('../jbildmusik/dungeonwall.png');
   background-repeat: no-repeat;
   background-size: 100%;
   position: relative;
@@ -16,7 +16,7 @@ body {
 #canvas {
   width: 550px;
   height: 630px;
-  background-image: url('jbildmusik/scroll.png');
+  background-image: url('../jbildmusik/scroll.png');
   background-repeat: no-repeat;
   display: flex;
   flex-direction: column;
@@ -84,7 +84,7 @@ body {
 #gate {
   height: 100%;
   width: 100%;
-  background-image: url('jbildmusik/gate.jpg');
+  background-image: url('../jbildmusik/gate.jpg');
   background-repeat: no-repeat;
   background-size: 100%;
   position: absolute;
