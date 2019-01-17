@@ -21,7 +21,6 @@ body {
 #canvas {
   border: 1px solid darkgray;
   display: none;
-  margin: 5px;
 }
 
 #gametitle,
@@ -46,7 +45,7 @@ a {
   font-size: 18px;
   display: none;
   text-align: center;
-  margin: 10px;
+  margin: 5px;
 }
 
 #startscreen p {
@@ -57,7 +56,7 @@ a {
   font-family: "Charm", cursive;
   font-size: 24px;
   font-weight: bold;
-  margin: 0 0 10px;
+  margin: 0 0 5px;
 }
 
 #footer {
