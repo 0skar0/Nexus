@@ -227,7 +227,7 @@ function scoreFunction() {
 // om man klarat spelet körs denna funktion
 function winner() {
   if (matchedCard.length >= 8) {
-    localStorage.clear("userChoice");
+    localStorage.removeItem("userChoice");
     removeListeners();
     var getContainer = document.querySelector("#container");
     getContainer.remove();
