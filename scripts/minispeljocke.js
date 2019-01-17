@@ -13,7 +13,7 @@ const list = [
 ];
 let randomVal, word, newGameOr, list2 = [],
   avatar, player1Score, player2Score, player3Score,
-  inputBox, timer = 11,
+  inputBox, timer = 10,
   playThrough = 0,
   newGameBtn, hiList = [{}, {}, {}],
   backpack,
@@ -25,7 +25,7 @@ gameOverSound = new Audio('../jbildmusik/gameover.mp3');
 fanfare = new Audio('../jbildmusik/fanfare.mp3');
 
 avatar = localStorage.getItem('userName');
-backpack = localStorage.backIcon;
+backpack = localStorage.getItem('backIcon');
 
 
 
@@ -250,9 +250,11 @@ function goAgain() {
 
 function nextScreen() {
   if (player.score >= 20) {
+    localStorage.clear();
     alert('Du klarade spelet!');
     window.location = '../html/gameover.html';
   } else if (player.score < 20 && playThrough == 2) {
+    localStorage.clear();
     alert('Du klarade det inte...börjar om');
     window.location = '../index.html';
   } else {
@@ -300,7 +302,7 @@ function checkStatus() {
 
 function levelup() { // om man kommer upp till satt poäng levlar man upp och det blir svårare
 
-  if (player.score >= 10 && theDifficulty == 'novis') {
+  if (list2.length == 3 && theDifficulty == 'novis') {
 
     while (list2.length > 0) {
       list2.pop();
@@ -316,7 +318,7 @@ function levelup() { // om man kommer upp till satt poäng levlar man upp och de
 
   }
 
-  if (player.score >= 20 && theDifficulty == 'lärjunge') {
+  if (list2.length == 3 && theDifficulty == 'lärjunge') {
 
 
     while (list2.length > 0) {
@@ -337,8 +339,13 @@ function levelup() { // om man kommer upp till satt poäng levlar man upp och de
 }
 
 function scoreUp() { //plussar på poäng.
+  if (theDifficulty != 'trollkarl') {
   player.score++;
   scoreBoard.innerHTML = `Poäng:${Object.values(player)[4]}`;
+} else {
+  player.score += 3;
+  scoreBoard.innerHTML = `Poäng:${Object.values(player)[4]}`;
+}
 }
 
 function checkVal() { //själva spelet.
@@ -360,17 +367,17 @@ function checkVal() { //själva spelet.
 function plusTime() { //om man gissar rätt får man mer tid beroende på svårighetsgrad.
   if (theDifficulty == 'novis') {
 
-    timer += 3;
+    timer += 2;
 
   }
   if (theDifficulty == 'lärjunge') {
 
-    timer += 4;
+    timer += 3;
 
   }
 
   if (theDifficulty == 'trollkarl') {
-    timer += 6;
+    timer += 4;
 
   }
 }
