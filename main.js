@@ -20,6 +20,7 @@ function bowFunction() {
 function wandFunction() {
   document.getElementsByTagName("div")[0].style.display = "none";
   document.getElementsByTagName("section")[0].style.display = "none";
+  localStorage.userChoice = 1;
 }
 
 function backFunction() {
