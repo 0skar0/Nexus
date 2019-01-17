@@ -15,6 +15,7 @@ function mapFunction() {
 function bowFunction() {
   document.getElementsByTagName("div")[0].style.display = "none";
   document.getElementsByTagName("section")[0].style.display = "none";
+  localStorage.bowIcon = true;
 }
 
 function wandFunction() {
