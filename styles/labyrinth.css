@@ -15,6 +15,7 @@ body {
   text-align: center;
   width: 600px;
   flex: 1 0 auto;
+  background-color: #ffffff;
 }
 
 #canvas {
