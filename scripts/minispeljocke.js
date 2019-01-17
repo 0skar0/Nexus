@@ -245,7 +245,7 @@ function goAgain() {
 ////////////////////////////////////7koppla denna till sista screenen.////////////////////////////////////
 function nextScreen() {
 
-  window.location = 'js\minspeljocke\minispeljocke.html';
+  window.location = '../html/gameover.html';
 
 }
 
