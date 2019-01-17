@@ -24,9 +24,9 @@ var cards = [...card];
 var displayMessage;
 var whichMessageToDisplay;
 
-// Kolla vilket item användaren valt. Fördel om hen valt "kniv (0)".
-var userChoice = 0;
-if (userChoice === 1) {
+// Kolla vilket item användaren valt. Fördel om hen valt "wand".
+var userChoice = localStorage.getItem("userChoice");
+if (userChoice == "true") {
   var advantage = document.querySelector(".deathCard");
   advantage.classList.add("disabled", "open", "match");
 }
@@ -48,13 +48,12 @@ var scoreCounter = document.querySelector(".score");
 
 //Ett objekt till försök och hur många poäng som behövs för att vinna.
 var triesAndScore = {
-  tries: 8,
+  moves: 8,
   win: 4
 };
 
 document.querySelector(".numberOfMoves").innerHTML = Object.values(triesAndScore)[0];
 document.querySelector(".winningPoints").innerHTML = Object.values(triesAndScore)[1];
-
 
 //vilka kort matchar
 var matchedCard = document.getElementsByClassName("match");
@@ -228,7 +227,7 @@ function scoreFunction() {
 // om man klarat spelet körs denna funktion
 function winner() {
   if (matchedCard.length >= 8) {
-    localStorage.clear();
+    localStorage.clear("userChoice");
     removeListeners();
     var getContainer = document.querySelector("#container");
     getContainer.remove();
@@ -240,14 +239,14 @@ function winner() {
     button.appendChild(buttonText);
     document.body.appendChild(button);
     document.querySelector(".finalButton").addEventListener("click", function() {
-      location.href = "../minispeljocke.html";
+      location.href = "minispeljocke.html";
     });
   }
 }
 
 // om man inte klarat spelet körs denna.
 function tryAgain() {
-  localStorage.clear();
+  localStorage.removeItem("userChoice");
   var getStartButton = document.querySelector(".startButton");
   getStartButton.innerHTML = "Try Again!";
   var getLoserBox = document.querySelector(".winner-box");
@@ -255,7 +254,7 @@ function tryAgain() {
   document.querySelector(".startButton").addEventListener("click", reloadGame);
 
   function reloadGame() {
-    location.href = "../html/memory.html";
+    location.href = "../index.html";
   }
 }
 
