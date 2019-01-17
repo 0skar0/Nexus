@@ -11,19 +11,23 @@ const list = [
     'överljudshastighet', 'rabarberpajerna', 'narkolepsifallen', 'packningsapparat', 'yrkesdemonstrant'
   ]
 ];
-let randomVal, word, newGameOr, list2 = [],avatar,
-  inputBox, timer = 10,
+let randomVal, word, newGameOr, list2 = [],
+  avatar, player1Score, player2Score, player3Score,
+  inputBox, timer = 11,
   playThrough = 0,
-  newGameBtn, hiList = [{}, {}, {}],backpack,
+  newGameBtn, hiList = [{}, {}, {}],
+  backpack,
   tickTock, theDifficulty, status = true,
   ding = new Audio('../jbildmusik/ding.wav'),
   music = new Audio('../jbildmusik/backmusic.mp3');
-  castle = new Audio('../jbildmusik/castleDoor.mp3');
-  gameOverSound = new Audio('../jbildmusik/gameover.mp3');
-  fanfare = new Audio('../jbildmusik/fanfare.mp3');
+castle = new Audio('../jbildmusik/castleDoor.mp3');
+gameOverSound = new Audio('../jbildmusik/gameover.mp3');
+fanfare = new Audio('../jbildmusik/fanfare.mp3');
 
 avatar = localStorage.getItem('userName');
-backpack =  localStorage.backIcon;
+backpack = localStorage.backIcon;
+
+
 
 let player = {
   avatar: avatar,
@@ -234,7 +238,7 @@ function goAgain() {
     scoreBoard.innerHTML = 'Poäng:0'; //rensar scoreBoard för nästa runda, annars syns den gamla tills man fått nytt poäng.
     clearInput(); //clearar för ny runda.
     playThrough++; //plussar på rundan så att highscore listan får ny entry.
-    timer = 11; // sätter tid så att intervalen inte stoppar spelet.
+    timer = 10; // sätter tid så att intervalen inte stoppar spelet.
     music.play(); //sätter igång backgrundmusiken igen.
     status = true //togglar highscore listan så att den inte är öppen vid nästa playThrough
     startThegame();
@@ -242,11 +246,18 @@ function goAgain() {
   }
 }
 
-////////////////////////////////////7koppla denna till sista screenen.////////////////////////////////////
+
+
 function nextScreen() {
-
-  window.location = '../html/gameover.html';
-
+  if (player.score >= 20) {
+    alert('Du klarade spelet!');
+    window.location = '../html/gameover.html';
+  } else if (player.score < 20 && playThrough == 2) {
+    alert('Du klarade det inte...börjar om');
+    window.location = '../index.html';
+  } else {
+    alert('du måste få minst 20 poäng för att komma vidare');
+  }
 }
 
 function endScreen() {
@@ -255,8 +266,8 @@ function endScreen() {
   updateEndScreen(); //ger informationen till ul listan
   uppdateHiScore() //uppdaterar highscorelistan.
   $('#endScreen').show(); // visar stats och knappar för att avsluta eller starta nytt spel
-
 }
+
 
 function copyToHighScore() { // kopierar player info till en array med objekt
 
@@ -394,9 +405,11 @@ function difficulty() { // återavnvändbar för att få välja sin svårighetsg
 
   theDifficulty = prompt('Välj svårighetsgrad, skriv novis, lärjunge eller trollkarl 10,20,30 sekunders starttid. om man väljer nån av dom lägre kommer man eventuellt till trollkarl. Jag rekommenderar novis. Om du valde ryggsäcken i början så får du extra tid.');
 
+  checkBackPack(); //om man valde backpack i början får man plus 10 sek.
+
   switch (theDifficulty) {
 
-    ///////////////checkBackPack(); //om man valde backpack i början får man plus 10 sek.////////////////////
+
 
     case 'novis':
       level.innerHTML = 'Nivå: Novis';
