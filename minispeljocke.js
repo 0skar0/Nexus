@@ -74,6 +74,12 @@ gate.addEventListener('click', enterTheCastle)
 
 ////////////////////////////////////////////////////////////////////////
 
+function checkBackPack() { //om man valde backpack i början får man plus 10 sek.
+  if (backpack = true) {
+    timer += 10;
+  }
+}
+
 function enterTheCastle() {
 
   playCastle();
@@ -389,6 +395,8 @@ function difficulty() { // återavnvändbar för att få välja sin svårighetsg
   theDifficulty = prompt('Välj svårighetsgrad, skriv novis, lärjunge eller trollkarl 10,20,30 sekunders starttid. om man väljer nån av dom lägre kommer man eventuellt till trollkarl. Jag rekommenderar novis. Om du valde ryggsäcken i början så får du extra tid.');
 
   switch (theDifficulty) {
+
+    checkBackPack(); //om man valde backpack i början får man plus 10 sek.
 
     case 'novis':
       level.innerHTML = 'Nivå: Novis';
