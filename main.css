@@ -6,7 +6,7 @@ body {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-image: url('slottet.jpg');
+  background-image: url("images/slottet.jpg");
   background-repeat: no-repeat;
 }
 
@@ -18,11 +18,8 @@ h1 {
   font-family: "Charm", serif;
   font-size: 60px;
   color: lightgrey;
-  text-shadow:
-   -1px -1px 0 #000,
-    1px -1px 0 #000,
-    -1px 1px 0 #000,
-     1px 1px 0 #000;
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
 }
 
 .textContainer {
@@ -44,12 +41,11 @@ p {
 }
 
 .itemText {
-    background-color: rgba(0, 0, 0, 0.6);
-    border-radius: 5px;
-    padding: 5px;
-    text-align: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 5px;
+  padding: 5px;
+  text-align: center;
 }
-
 
 section {
   display: none;
@@ -82,7 +78,7 @@ section {
   height: 50px;
   border-radius: 5px;
   color: white;
-  text-shadow: 3px 3px 8px #BF7F00, -3px -3px 8px #BF7F00;
+  text-shadow: 3px 3px 8px #bf7f00, -3px -3px 8px #bf7f00;
   border: none;
   background-color: transparent;
   font-size: 25px;
@@ -104,7 +100,8 @@ section {
   cursor: pointer;
 }
 
-.box p, .box h1 {
+.box p,
+.box h1 {
   width: 150px;
   margin: 0 10px;
 }
