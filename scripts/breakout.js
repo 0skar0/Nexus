@@ -36,7 +36,7 @@ var livesArrTwo;
 var bowIcon = localStorage.getItem("bowIcon");
 switch (bowIcon) {
 case "true":
-  livesP = 4;
+  livesP = 4; //om man väljer mitt item så får man ett extra liv
   break;
 default:
   livesP = 3;
@@ -44,10 +44,9 @@ default:
 }
 var lives = livesP;
 
-//gjorde såhär för att använda while, men det låste sig
-//när jag la till switch-satsen med items, så var tvungen
-//att göra en "fejk" variabel med liv, som jag sedan kör
-//i while-loopen
+
+/*gjorde såhär för att använda while, men det låste signär jag la till switch-satsen med items,
+så var tvungen att göra en "fejk" variabel med liv, som jag sedan kör i while-loopen */
 while (livesW != 1 || livesW != 2 || livesW != 3 || livesW !=4) {
   if (livesW == 1 || livesW == 2 || livesW == 3) {
     for (i = livesW; i > 0; i--) {
@@ -72,10 +71,11 @@ for(var c=0; c<brickColumnCount; c++) {
 }
 
 
-// så att man kan styra brädan
+// så att man kan styra brädan och pausa spelet
 document.addEventListener("keydown", keyDownHandler, false);
 document.addEventListener("keyup", keyUpHandler, false);
 document.addEventListener('keydown', pauseGameKeyHandler, false);
+
 
 // för piltangenterna
 function keyDownHandler(e) {
@@ -112,37 +112,6 @@ function pauseGameKeyHandler(e) {
 function togglePause() {
   paused = !paused;
   draw();
-}
-
-
-//funktion för när bollen träffar brickorna
-function collisionDetection() {
-  for(var c=0; c<bricks.length; c++) {
-    for(var r=0; r<bricks[c].length; r++) {
-      var b = bricks[c][r];
-      if(b.status == 1) {
-        if(x > b.x && x < b.x+brickWidth && y > b.y && y < b.y+brickHeight) {
-          dy = -dy;
-          b.status = 0;
-          score++;
-          if(score == brickRowCount*brickColumnCount) {
-            scoreArr();
-            hideCanvas();
-            togglePause();
-            var div = document.querySelector(".next");
-            var finalScore = document.createElement("p");
-            finalScore.textContent = "Grattis, du klarade spelet! Du fick " + score + " poäng.\nNu kan du gå vidare till nästa del i det här äventyret!";
-            document.body.appendChild(finalScore);
-            finalScore.style.fontFamily = "Charm, cursive";
-            finalScore.style.fontSize = "25px";
-            finalScore.style.textAlign = "center";
-            showNext();
-            localStorage.removeItem("bowIcon");
-          }
-        }
-      }
-    }
-  }
 }
 
 
@@ -277,10 +246,42 @@ console.log(newScore);
 };
 
 
+// funktion för när bollen träffar brickorna
+function collisionDetection() {
+  for(var c=0; c<bricks.length; c++) {
+    for(var r=0; r<bricks[c].length; r++) {
+      var b = bricks[c][r];
+      if(b.status == 1) {
+        if(x > b.x && x < b.x+brickWidth && y > b.y && y < b.y+brickHeight) {
+          dy = -dy;
+          b.status = 0;
+          score++;
+          if(score == brickRowCount*brickColumnCount) {
+            scoreArr();
+            hideCanvas();
+            togglePause();
+            var div = document.querySelector(".next");
+            var finalScore = document.createElement("p");
+            finalScore.textContent = "Grattis, du klarade spelet! Du fick " + score + " poäng.\nNu kan du gå vidare till nästa del i det här äventyret!";
+            document.body.appendChild(finalScore);
+            finalScore.style.fontFamily = "Charm, cursive";
+            finalScore.style.fontSize = "25px";
+            finalScore.style.textAlign = "center";
+            showNext();
+            localStorage.removeItem("bowIcon");
+          }
+        }
+      }
+    }
+  }
+}
+
+
 hideNext();
 hideRestart();
 drawStart();
 localStorage.removeItem("bowIcon");
+
 
 // huvudfunktionen med alla andra funktioner som ritar upp allting
 function draw() {
@@ -343,7 +344,8 @@ function draw() {
   }
 }
 
-//2d arrayer
+
+//2d array som skriver ut vem som har gjort spelet
 var creator = [
   ["Marcus Andersson"],
   ["17/1-2019"]
