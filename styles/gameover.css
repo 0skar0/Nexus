@@ -1,10 +1,10 @@
 h1 {
-  font-size: 80px;
+  font-size: 60px;
   color: white;
   text-shadow: 3px 3px 8px #BF7F00, -3px -3px 8px #BF7F00;
   font-family: 'Charm';
-  margin-bottom: 0;
-  margin-top: -100px;
+  margin-bottom: 20px;
+  margin-top: -10px;
 }
 
 body {
@@ -40,7 +40,7 @@ p {
 ul li {
   list-style: none;
   font-size: 20px;
-  color:white;
+  color: white;
   text-shadow: 3px 3px 8px #BF7F00, -3px -3px 8px #BF7F00;
 }
 
@@ -50,4 +50,16 @@ h2 {
   text-shadow: 3px 3px 8px #BF7F00, -3px -3px 8px #BF7F00;
   font-family: 'Charm';
   margin-bottom: 0;
+}
+
+.againAgain {
+  margin-top: 20px;
+  width: 150px;
+  height: 50px;
+  border-radius: 5px;
+  color: white;
+  text-shadow: 3px 3px 8px #bf7f00, -3px -3px 8px #bf7f00;
+  border: none;
+  background-color: transparent;
+  font-size: 25px;
 }
