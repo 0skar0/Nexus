@@ -29,16 +29,17 @@ var score = 0;
 var endScore = score;
 //var livesP = prompt("Hur många liv vill du börja med?\n Välj mellan 1-3.");
 var livesArr = [];
-//var livesP = 3;
+var livesW = 3;
 var lives;
 
 
-let bowIcon = localStorage.getItem("bowIcon");
+var bowIcon = localStorage.getItem("bowIcon");
 
-// item för mer lives
+
+// kollar ifall man har valt mitt item
 switch (bowIcon) {
 case "true":
-  var livesP = 4;
+  livesP = 4;
   break;
 default:
   livesP = 3;
@@ -47,10 +48,9 @@ default:
 
 
 
-
-while (livesP != 1 || livesP != 2 || livesP != 3 || livesP !=4) {
-  if (livesP == 1 || livesP == 2 || livesP == 3) {
-    for (i = livesP; i > 0; i--) {
+while (livesW != 1 || livesW != 2 || livesW != 3 || livesW !=4) {
+  if (livesW == 1 || livesW == 2 || livesW == 3) {
+    for (i = livesW; i > 0; i--) {
       livesArr.push(livesP);
     }
     break;
@@ -264,7 +264,7 @@ function drawScore() {
 function drawLives() {
   ctx.font = "18px Charm";
   ctx.fillStyle = "#ffffff";
-  ctx.fillText("Liv: "+lives, 340, 22);
+  ctx.fillText("Liv: "+livesP, 340, 22);
 }
 
 
@@ -280,7 +280,7 @@ console.log(newScore);
 hideNext();
 hideRestart();
 drawStart();
-
+localStorage.removeItem("bowIcon");
 
 // huvudfunktionen med alla andra funktioner som ritar upp allting
 function draw() {
