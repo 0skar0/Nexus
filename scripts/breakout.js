@@ -29,7 +29,7 @@ var score = 0;
 var endScore = score;
 //var livesP = prompt("Hur många liv vill du börja med?\n Välj mellan 1-3.");
 var livesArr = [];
-var livesP = 1;
+var livesP = 3;
 var lives;
 
 while (livesP != 1 || livesP != 2 || livesP != 3) {
