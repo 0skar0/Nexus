@@ -30,13 +30,10 @@ var endScore = score;
 //var livesP = prompt("Hur många liv vill du börja med?\n Välj mellan 1-3.");
 var livesArr = [];
 var livesW = 3;
-var lives;
-
-
-var bowIcon = localStorage.getItem("bowIcon");
-
+var livesArrTwo;
 
 // kollar ifall man har valt mitt item
+var bowIcon = localStorage.getItem("bowIcon");
 switch (bowIcon) {
 case "true":
   livesP = 4;
@@ -45,9 +42,12 @@ default:
   livesP = 3;
   break;
 }
+var lives = livesP;
 
-
-
+//gjorde såhär för att använda while, men det låste sig
+//när jag la till switch-satsen med items, så var tvungen
+//att göra en "fejk" variabel med liv, som jag sedan kör
+//i while-loopen
 while (livesW != 1 || livesW != 2 || livesW != 3 || livesW !=4) {
   if (livesW == 1 || livesW == 2 || livesW == 3) {
     for (i = livesW; i > 0; i--) {
@@ -56,7 +56,7 @@ while (livesW != 1 || livesW != 2 || livesW != 3 || livesW !=4) {
     break;
   }
 }
-lives = livesArr.length;
+livesArrTwo = livesArr.length;
 
 
 var bricks = [];
@@ -264,7 +264,7 @@ function drawScore() {
 function drawLives() {
   ctx.font = "18px Charm";
   ctx.fillStyle = "#ffffff";
-  ctx.fillText("Liv: "+livesP, 340, 22);
+  ctx.fillText("Liv: "+lives, 340, 22);
 }
 
 
