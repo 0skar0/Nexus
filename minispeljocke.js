@@ -11,10 +11,10 @@ const list = [
     'överljudshastighet', 'rabarberpajerna', 'narkolepsifallen', 'packningsapparat', 'yrkesdemonstrant'
   ]
 ];
-let randomVal, word, newGameOr, list2 = [],
+let randomVal, word, newGameOr, list2 = [],avatar,
   inputBox, timer = 10,
   playThrough = 0,
-  newGameBtn, hiList = [{}, {}, {}],
+  newGameBtn, hiList = [{}, {}, {}],backpack,
   tickTock, theDifficulty, status = true,
   ding = new Audio('jbildmusik/ding.wav'),
   music = new Audio('jbildmusik/backmusic.mp3');
@@ -22,8 +22,11 @@ let randomVal, word, newGameOr, list2 = [],
   gameOverSound = new Audio('jbildmusik/gameover.mp3');
   fanfare = new Audio('jbildmusik/fanfare.mp3');
 
+avatar = localStorage.getItem('userName');
+backpack =  localStorage.backIcon;
+
 let player = {
-  avatar: '',
+  avatar: avatar,
   name: '',
   lName: '',
   age: 0,
@@ -49,7 +52,8 @@ scoreBoard.innerHTML = 'Poäng:0'
 newGameBtn = document.querySelector('#btn');
 endGameBtn = document.querySelector('#btn2');
 scoreGameBtn = document.querySelector('#btn3');
-document.querySelector('#playAvatar');
+avatarPlace = document.querySelector('#playAvatar');
+avatarPlace.innerHTML = `${avatar}`
 gate = document.querySelector('#gate');
 /////////////////////////////////Event lyssnare ////////////////////////////
 
@@ -260,6 +264,7 @@ function checkStatus() {
   if (list2.length <= 0 && theDifficulty == 'trollkarl') { // game over men man vinner.
     music.pause();
     fanfare.play();
+    copyToHighScore();
     clearAllInterval();
     endScreen();
 
@@ -429,6 +434,7 @@ function difficulty() { // återavnvändbar för att få välja sin svårighetsg
 
 function startThegame() { // spelet startar här användaren får knappra in sitt namn ålder och svårighetsgrad
 
+  alert(`Hej, ${avatar}`)
   player.name = prompt('Namn'); // lite information om spelaren som sparas i ett objekt.
   player.lName = prompt('Efternamn');
   player.age = prompt('skriv in ålder');
