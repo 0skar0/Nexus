@@ -79,8 +79,9 @@ gate.addEventListener('click', enterTheCastle)
 ////////////////////////////////////////////////////////////////////////
 
 function checkBackPack() { //om man valde backpack i början får man plus 10 sek.
-  if (backpack == true) {
-    timer += 10;
+  if (backpack == 'true') {
+    timer = 20;
+    alert('Gytt du har väskan, +10 sek till på tiden.');
   }
 }
 
@@ -226,8 +227,8 @@ function goAgain() {
 
   if (playThrough == 2) {
 
-    alert('Du har spelat nog nu, jag skickar vidare dig. Bye Bye.')
-    window.location = 'js\minspeljocke\minispeljocke.html';
+    alert('Du klarade det tyvärr inte, lycka till nästa gång!')
+    window.location = '../index.html';
 
   } else {
 
@@ -238,7 +239,7 @@ function goAgain() {
     scoreBoard.innerHTML = 'Poäng:0'; //rensar scoreBoard för nästa runda, annars syns den gamla tills man fått nytt poäng.
     clearInput(); //clearar för ny runda.
     playThrough++; //plussar på rundan så att highscore listan får ny entry.
-    timer = 10; // sätter tid så att intervalen inte stoppar spelet.
+    timer = 11; // sätter tid så att intervalen inte stoppar spelet.
     music.play(); //sätter igång backgrundmusiken igen.
     status = true //togglar highscore listan så att den inte är öppen vid nästa playThrough
     startThegame();
@@ -251,10 +252,12 @@ function goAgain() {
 function nextScreen() {
   if (player.score >= 20) {
     localStorage.clear();
+    clearAllInterval();
     alert('Du klarade spelet!');
     window.location = '../html/gameover.html';
   } else if (player.score < 20 && playThrough == 2) {
     localStorage.clear();
+    clearAllInterval();
     alert('Du klarade det inte...börjar om');
     window.location = '../index.html';
   } else {
@@ -383,7 +386,7 @@ function plusTime() { //om man gissar rätt får man mer tid beroende på svåri
 }
 
 
-// ge focis till inpotbox, så att man är redo att spela.
+// ge focus till inpotbox, så att man är redo att spela.
 function focusInputBox() {
 
   inputBox.focus();
@@ -407,12 +410,13 @@ function time() { // den här räknar och går på intervall
 
 function difficulty() { // återavnvändbar för att få välja sin svårighetsgrad om man vill spela igen eller nåt.
 
+  checkBackPack(); //om man valde backpack i början får man plus 10 sek.
 
   list2 = []; // clearar listan så att ett ny ramlar in.
 
   theDifficulty = prompt('Välj svårighetsgrad, skriv novis, lärjunge eller trollkarl 10,20,30 sekunders starttid. om man väljer nån av dom lägre kommer man eventuellt till trollkarl. Jag rekommenderar novis. Om du valde ryggsäcken i början så får du extra tid.');
 
-  checkBackPack(); //om man valde backpack i början får man plus 10 sek.
+
 
   switch (theDifficulty) {
 
@@ -423,6 +427,7 @@ function difficulty() { // återavnvändbar för att få välja sin svårighetsg
       novice = true;
       for (let i = 0; i < list[0].length; i++) {
         list2.unshift(list[0][i]);
+
       }
 
       break;
@@ -462,7 +467,7 @@ function difficulty() { // återavnvändbar för att få välja sin svårighetsg
 
 function startThegame() { // spelet startar här användaren får knappra in sitt namn ålder och svårighetsgrad
 
-  alert(`Hej, ${avatar}`)
+  alert(`Hej, ${avatar}`);
   player.name = prompt('Namn'); // lite information om spelaren som sparas i ett objekt.
   player.lName = prompt('Efternamn');
   player.age = prompt('skriv in ålder');
