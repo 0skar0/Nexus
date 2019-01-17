@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="sv" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>Minispel jocke</title>
+  <link href="https://fonts.googleapis.com/css?family=Charm:400,700" rel="stylesheet">
+  <link rel="stylesheet" href="minispeljocke.css">
+</head>
+
+<body>
+
+
+  <div id="gate">
+    <h2>-Klicka här-</h2>
+    <h1>Wizard's Scroll</h1>
+  </div>
+
+  <div id="canvas">
+    <div id="endScreen">
+      <div id="playerInfo">
+        <div id="stats">
+          <ul id="statsList">
+            <li id="gameOverMan">Game Over</li>
+            <li id='playAvatar'>placeholder</li>
+            <li id='playName'>Placeholder</li>
+            <li id='playAge'>Placeholder</li>
+            <li id='playScore'>Placeholder</li>
+          </ul>
+        </div>
+        <ul id="hiScore">
+          <li id="player1">player1</li>
+          <li id="player2">player2</li>
+          <li id="player3">player3</li>
+        </ul>
+      </div>
+      <div id="buttons">
+        <button id='btn' type="button" name="button">Spela igen</button>
+        <button id='btn3' type="button" name="button">Highscore</button>
+        <button id='btn2' type="button" name="button">Avsluta</button>
+      </div>
+    </div>
+    <div id="hideIt">
+      <div id="time"></div>
+      <div id="word"></div>
+
+      <input type="text" id='inputBox'>
+      <div id="nextto">
+        <div id="level"></div>
+        <div id="score"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+  <script src='minispeljocke.js'></script>
+</body>
+
+</html>
