@@ -280,7 +280,6 @@ function collisionDetection() {
 hideNext();
 hideRestart();
 drawStart();
-localStorage.removeItem("bowIcon");
 
 
 // huvudfunktionen med alla andra funktioner som ritar upp allting
