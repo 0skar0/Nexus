@@ -79,7 +79,7 @@ gate.addEventListener('click', enterTheCastle)
 ////////////////////////////////////////////////////////////////////////
 
 function checkBackPack() { //om man valde backpack i början får man plus 10 sek.
-  if (backpack = true) {
+  if (backpack == true) {
     timer += 10;
   }
 }
