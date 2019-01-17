@@ -174,7 +174,7 @@ function init() {
     }, 3000);
     document.removeEventListener("keydown", movePlayer);
     Object.seal(playerCoordinates);
-    localStorage.removeItem("mapIcon");
+    localStorage.clear();
   }
 
   // Poison event
@@ -186,7 +186,7 @@ function init() {
       document.getElementsByTagName("a")[1].style.display = "block";
     }, 3000);
     document.removeEventListener("keydown", movePlayer);
-    localStorage.removeItem("mapIcon");
+    localStorage.clear();
   }
 
   // Found hammer feedback
