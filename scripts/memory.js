@@ -210,7 +210,7 @@ function keepOnGoingOrNot() {
     getTryAgainButton.remove();
   }
   if (moves.length >= 8 && score.length != 4) {
-    displayMessage = "Du klarade inte det. Försök igen!";
+    displayMessage = "Du klarade inte det! Börja om!";
     tryAgain();
     removeListeners();
   }
@@ -248,7 +248,7 @@ function winner() {
 function tryAgain() {
   localStorage.clear();
   var getStartButton = document.querySelector(".startButton");
-  getStartButton.innerHTML = "Try Again!";
+  getStartButton.innerHTML = "Börja om!";
   var getLoserBox = document.querySelector(".winner-box");
   getLoserBox.innerHTML = "<h1>Pyttsan!</h1>" + displayMessage;
   document.querySelector(".startButton").addEventListener("click", reloadGame);
