@@ -3,19 +3,21 @@
 
 <head>
   <meta charset="utf-8">
-  <title>Fantasy Game</title>
+  <title>Project Nexus</title>
   <link href="https://fonts.googleapis.com/css?family=Charm|Roboto" rel="stylesheet">
   <link rel="stylesheet" href="main.css">
 </head>
 
 <body>
   <div class="startscreen">
-    <h1>Fantasy Game</h1>
-    <p>Välkommen äventyrare, Det är dags att lämna din mysiga lilla by och gå ut på upptäcksfärd. Välj det föremål du vill ha, och ge dig ut på ett episkt äventyr...det är ett äventyr iallafall.</p>
-    <button class="startbutton" onclick="startButton()">Start Game</button>
+    <h1>Det mörka slottet</h1>
+    <div class="textContainer">
+    <p>Välkommen äventyrare, Det är dags att lämna din mysiga lilla by och gå ut på upptäcksfärd i ett farligt slott..smart där. Jaja välj det föremål du tror kommer hjälpa dig mest. Må dom 46 gudarna stå på din sida och lycka till.</p>
+    <button class="startbutton" onclick="startButton()">Äventyr!</button>
+      </div>
   </div>
   <div class="header">
-    <h1>Choose your item!</h1>
+    <h1>Välj ditt redskap!</h1>
   </div>
   <section>
     <div class="box map">
@@ -23,28 +25,28 @@
         <img src="images/128/map.png" alt="" onclick="mapFunction()">
       </a>
       <h1>Karta</h1>
-      <p>Ger dig ett övertag i den förrädiska Labyrinten.</p>
+      <p class="itemText">Ger dig ett övertag i den förrädiska Labyrinten.</p>
     </div>
     <div class="box bow">
       <a href="html/labyrinth.html">
         <img src="images/128/bow.png" alt="" onclick="bowFunction()">
       </a>
       <h1>Pilbåge</h1>
-      <p>Ger dig ett övertag mot dom mordiska blocken.</p>
+      <p class="itemText">Ger dig ett övertag mot dom mordiska blocken.</p>
     </div>
     <div class="box wand">
       <a href="html/labyrinth.html">
         <img src="images/128/wand.png" alt="" onclick="wandFunction()">
       </a>
       <h1>Trollstav</h1>
-      <p>Ger dig ett övertag mot dom diaboliska korten.</p>
+      <p class="itemText">Ger dig ett övertag mot dom diaboliska korten.</p>
     </div>
     <div class="box backpack">
       <a href="html/labyrinth.html">
         <img src="images/128/backpack.png" alt="" onclick="backFunction()">
       </a>
       <h1>Väska</h1>
-      <p>Ger dig ett övertag mot dom förvirrande magiska orden.</p>
+      <p class="itemText">Ger dig ett övertag mot dom förvirrande magiska orden.</p>
     </div>
   </section>
   <script src="main.js" charset="utf-8"></script>

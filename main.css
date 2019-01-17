@@ -5,6 +5,8 @@ body {
   display: flex;
   align-items: center;
   flex-direction: column;
+  background-image: url('slottet.jpg');
+  background-repeat: no-repeat;
 }
 
 * {
@@ -13,12 +15,34 @@ body {
 
 h1 {
   font-family: "Charm", serif;
+  font-size: 50px;
+}
+
+.textContainer {
+  width: 500px;
+  height: 300px;
+  background-color: rgba(0, 0, 0, 0.6);
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 p {
-  font-family: "Roboto", sans-serif;
-  font-size: 14px;
+  font-family: "charm", sans-serif;
+  font-size: 20px;
+  color: white;
+  width: 450px;
 }
+
+.itemText {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 5px;
+    padding: 5px;
+    text-align: center;
+}
+
 
 section {
   display: none;
@@ -44,6 +68,17 @@ section {
 
 .startscreen button {
   margin: 10px;
+}
+
+.startbutton {
+  width: 100px;
+  height: 50px;
+  border-radius: 5px;
+  color: white;
+  text-shadow: 3px 3px 8px #BF7F00, -3px -3px 8px #BF7F00;
+  border: none;
+  background-color: transparent;
+  font-size: 25px;
 }
 
 .box {

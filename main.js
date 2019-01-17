@@ -2,7 +2,7 @@ function startButton() {
   document.getElementsByClassName("header")[0].style.display = "block";
   document.getElementsByTagName("section")[0].style.display = "flex";
   document.getElementsByClassName("startscreen")[0].style.display = "none";
-  nameInput = prompt("Enter your username: ");
+  nameInput = prompt("Välj namn på din hjälte: ");
   localStorage.userName = nameInput;
 }
 

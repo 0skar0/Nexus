@@ -1,6 +1,6 @@
 //////////////////////////////////////Deklarationer//////////////////////////////
 
-const list = [
+const list = [ 
   ['svärd', 'fantasy', 'dvärg', 'mördare', 'orcher', 'hobbit', 'hammare', 'demon', 'balrog',
     'ödla', 'svampar', 'spjut', 'barbar', 'bard', 'munk', 'stjärnor', 'måne', 'örter', 'spöke', 'båt'
   ],
@@ -30,7 +30,7 @@ backpack = localStorage.getItem('backIcon');
 
 
 let player = {
-  avatar: avatar,
+  avatar: `${avatar}`,
   name: '',
   lName: '',
   age: 0,
@@ -85,7 +85,7 @@ function checkBackPack() { //om man valde backpack i början får man plus 10 se
   }
 }
 
-function enterTheCastle() {
+function enterTheCastle() { //sätter igång vindbryggan och musiken startar.
 
   playCastle();
   music.play();
@@ -96,7 +96,7 @@ function enterTheCastle() {
 
 }
 
-function wordStart() {
+function wordStart() { //gömmer porten.
 
   $('#gate').hide();
   startThegame();
@@ -113,7 +113,7 @@ function updateEndScreen() {
 
 }
 
-function uppdateHiScore() {
+function uppdateHiScore() { //ger information till highscorelistan.
 
   if (playThrough == 0) {
 
@@ -152,7 +152,7 @@ function showHighScore() { // uppdaterar beroende på vilken playthrough man är
   }
 }
 
-function hideAndShow() {
+function hideAndShow() { //togglar mellan den spleade rundan och highscorelistan
   $('#stats').hide();
   $('#hiScore').show();
 }
@@ -162,7 +162,7 @@ function showAndHide() {
   $('#hiScore').hide();
 }
 
-function paintIt(event) {
+function paintIt(event) { //3 nästkommande ger färg om man hovrar på knapparna i slutet.
 
   event.target.style.backgroundColor = 'green';
 
@@ -180,7 +180,7 @@ function paintIt3(event) {
 
 }
 
-function paintItNot(event) {
+function paintItNot(event) { //revertar färgen på knapparna i slutet.
 
   event.target.style.backgroundColor = '#b37700';
 
@@ -223,7 +223,7 @@ function clearAllInterval() {
 
 }
 
-function goAgain() {
+function goAgain() { //ny spelrunda om man kört igenom spelet 3 gånger med start på noll så skickas man till startsidan.
 
   if (playThrough == 2) {
 
@@ -249,19 +249,23 @@ function goAgain() {
 
 
 
-function nextScreen() {
+function nextScreen() { //bestämmer om man får gå vidare till slutet.
+
   if (player.score >= 20) {
     localStorage.clear();
     clearAllInterval();
     alert('Du klarade spelet!');
     window.location = '../html/gameover.html';
+
   } else if (player.score < 20 && playThrough == 2) {
+
     localStorage.clear();
     clearAllInterval();
     alert('Du klarade det inte...börjar om');
     window.location = '../index.html';
   } else {
     alert('du måste få minst 20 poäng för att komma vidare');
+
   }
 }
 
@@ -343,12 +347,12 @@ function levelup() { // om man kommer upp till satt poäng levlar man upp och de
 
 function scoreUp() { //plussar på poäng.
   if (theDifficulty != 'trollkarl') {
-  player.score++;
-  scoreBoard.innerHTML = `Poäng:${Object.values(player)[4]}`;
-} else {
-  player.score += 3;
-  scoreBoard.innerHTML = `Poäng:${Object.values(player)[4]}`;
-}
+    player.score++;
+    scoreBoard.innerHTML = `Poäng:${Object.values(player)[4]}`;
+  } else {
+    player.score += 3;
+    scoreBoard.innerHTML = `Poäng:${Object.values(player)[4]}`;
+  }
 }
 
 function checkVal() { //själva spelet.
@@ -418,7 +422,7 @@ function difficulty() { // återavnvändbar för att få välja sin svårighetsg
 
 
 
-  switch (theDifficulty) {
+  switch (theDifficulty) { // väljer svårighetsgrad.
 
 
 
