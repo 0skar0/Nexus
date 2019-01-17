@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Memory</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="../styles/memory.css">
+    <link href="https://fonts.googleapis.com/css?family=Charm|Roboto" rel="stylesheet">
+  </head>
+  <body>
+    <header>
+      <h1>Let's play Memory</h1>
+      <h3>Spelet går ut på att få ihop <p class="winningPoints"></p> poäng och du har <p class="numberOfMoves"></p> försök på dig. I leken finns det även ett kort som påverkar spelet om du råkar klicka på det är det inte till din fördel... Om du inte valde "Wand" som ditt item då är det kortet redan uppvänt.</h3>
+    </header>
+    <div class="buttonStyle">
+      <button class="startButton" type="button" name="button">Start the game</button>
+
+      <span class="moves">Antal försök: 0</span>
+      <span class="score">Poäng: 0</span>
+    </div>
+    <div class="winner-box"></div>
+
+      <div id="container">
+        <div class="boxOne card deathCard" data-name="death">
+          <img src="../images/512/x.png">
+        </div>
+        <div class="boxTwo card" data-name="shield">
+          <img src="../images/512/upg_shield.png">
+        </div>
+        <div class="boxThree card" data-name="shield">
+          <img src="../images/512/upg_shield.png">
+        </div>
+        <div class="boxFour card" data-name="sword">
+          <img src="../images/512/upg_sword.png">
+        </div>
+        <div class="boxFive card" data-name="sword">
+          <img src="../images/512/upg_sword.png">
+        </div>
+        <div class="boxSix card" data-name="helmet">
+          <img src="../images/512/upg_helmet.png">
+        </div>
+        <div class="boxSeven card" data-name="helmet">
+          <img src="../images/512/upg_helmet.png">
+        </div>
+        <div class="boxEight card" data-name="hammer">
+          <img src="../images/512/upg_hammer.png">
+        </div>
+        <div class="boxNine card" data-name="hammer">
+          <img src="../images/512/upg_hammer.png">
+        </div>
+      </div>
+
+
+  </body>
+
+  <script src="../scripts/memory.js" charset="utf-8"></script>
+</html>
