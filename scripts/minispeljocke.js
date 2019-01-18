@@ -8,7 +8,7 @@ const list = [
     'xenofob', 'lärling', 'dödsjuk', 'spännande', 'pervers', 'excentrisk'
   ],
   ['hackerattackerna', 'mahognyskrivbord', 'ödesstämningarna', 'ölbuteljsetikett', 'tablettmissbruk',
-    'pixelfebersyptom', 'rabarberpajerna', 'narkolepsifallen', 'packningsapparat', 'yrkesdemonstrant'
+    'pixelfebersymptom', 'rabarberpajerna', 'narkolepsifallet', 'packningsapparat', 'yrkesdemonstrant'
   ]
 ];
 let randomVal, word, newGameOr, list2 = [],
@@ -498,7 +498,7 @@ function difficulty() { // återavnvändbar för att få välja sin svårighetsg
 
 function startThegame() { // spelet startar här användaren får knappra in sitt namn ålder och svårighetsgrad
 
-  alert(`Hej, ${avatar}`);
+  alert(`Välkommen, ${avatar}`);
   player.name = prompt('Namn'); // lite information om spelaren som sparas i ett objekt.
   player.lName = prompt('Efternamn');
   player.age = prompt('skriv in ålder');
