@@ -224,10 +224,10 @@ function winner() {
     var getContainer = document.querySelector("#container");
     getContainer.remove();
     var getWinnerBox = document.querySelector(".winner-box");
-    getWinnerBox.innerHTML = "<h1> Congratulations! You made it! </h1>" + displayMessage;
+    getWinnerBox.innerHTML = "<h1> Grattis! Du klarade det! </h1>" + displayMessage;
     var button = document.createElement("BUTTON");
     button.setAttribute("class", "finalButton");
-    var buttonText = document.createTextNode("Move on!");
+    var buttonText = document.createTextNode("Fortsätt!");
     button.appendChild(buttonText);
     document.body.appendChild(button);
     document.querySelector(".finalButton").addEventListener("click", function() {
