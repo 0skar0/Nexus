@@ -1,20 +1,8 @@
-
-/* jshint esversion: 6 */
-/*
-let canvas = document.getElementById("canvas");
-let parent = document.getElementById("container");
-let ctx = canvas.getContext("2d");
-canvas.width = parent.offsetWidth;
-canvas.height = parent.offsetHeight;
-
-ctx.clearRect(0, 0, canvas.width, canvas.height);
-ctx.fillStyle = "white";
-ctx.fillRect(0, 0, canvas.width, canvas.height);
-*/
+// jshint esversion: 6
+// Copyright: Oskar Olsson
 
 
-
-//Användaren måste klicka på start the game då läggs eventlyssnarna på.
+//Användaren måste klicka på start the game då ropas eventlyssnar-funktion.
 document.querySelector(".startButton").addEventListener("click", addListeners);
 
 var card = document.getElementsByClassName("card");
@@ -24,11 +12,14 @@ var cards = [...card];
 var displayMessage;
 var whichMessageToDisplay;
 
-// Kolla vilket item användaren valt. Fördel om hen valt "wand".
+// Kolla vilket item användaren valt och anpassa instruktioner efter användarens val.
 var userChoice = localStorage.getItem("userChoice");
 if (userChoice == "true") {
   var advantage = document.querySelector(".deathCard");
   advantage.classList.add("disabled", "open", "match");
+  $(".flexible-text").text(function() {
+    return $(this).replaceWith('<h3 class="flexible-wand">Du valde trollstaven som ditt item. Klokt beslut. Dödskortet är redan uppvänt och du behöver inte oroa dig för att råka klicka på det.</h3>');
+  });
 }
 
 //Ser vilka dom öppnade korten är
@@ -62,10 +53,7 @@ var matchedCard = document.getElementsByClassName("match");
 const deck = document.getElementById("container");
 deck.style.margin = "50px";
 
-for (var i = 0; i < cards.length; i++) {
-  cards[i].addEventListener("click", revealCard);
-}
-
+//lägg till eventlyssnare
 function addListeners() {
   var showBoard = document.querySelector('#container');
   showBoard.style.display = "flex";
@@ -78,6 +66,7 @@ function addListeners() {
   }
 }
 
+//en liten hover-styling
 $(".card").hover(function(){
   $(this).css("background-color", "#3b3b3c");
 },function(){
@@ -100,7 +89,7 @@ function shuffle(array) {
   return array;
 }
 
-
+//starta spelet
 function startGame() {
   var shuffledCards = shuffle(cards);
   for (var i = 0; i < shuffledCards.length; i++) {
@@ -117,7 +106,7 @@ var revealCard = function() {
 };
 
 
-// Kolla om korten matchar.
+// Kollar om korten matchar.
 function cardOpen() {
   openedCards.push(this);
   openedCards[0].classList.add("disabled");
@@ -179,7 +168,7 @@ function moveFunction() {
     badCard.classList.add("open", "disabled", "match");
     moves.push(1);
   }
-  moveCounter.innerHTML = "Antal försök: " + moves.length;
+  moveCounter.innerHTML = "Antal drag: " + moves.length;
   keepOnGoingOrNot();
 }
 
@@ -203,7 +192,6 @@ function keepOnGoingOrNot() {
       displayMessage = "Du klarade det på 8 försök, puh!";
       break;
   }
-
   if (score.length == 4) {
     winner();
     var getTryAgainButton = document.querySelector(".startButton");
@@ -268,13 +256,3 @@ function removeListeners() {
     card.classList.add("open", "disabled", "match");
   }
 }
-
-
-
-
-
-
-
-
-
-// END
