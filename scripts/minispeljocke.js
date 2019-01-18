@@ -280,7 +280,7 @@ function nextScreen() { //bestämmer om man får gå vidare till slutet.
 
     clearIt();
     clearAllInterval();
-    alert(`Yerr a wizard ${avatar}!`);
+    alert(`Yer a wizard ${avatar}!`);
     window.location = '../html/gameover.html';
 
   } else if (player.score < 30 && playThrough == 2) {
@@ -296,6 +296,10 @@ function nextScreen() { //bestämmer om man får gå vidare till slutet.
 }
 
 function endScreen() {
+
+  if (player.score >= 30) {
+    gameOverMan.innerHTML = 'Wizardly!'
+  }
 
   $('#hideIt').hide(); //gömmer all information så att jag kan ha winscreen
   updateEndScreen(); //ger informationen till ul listan
