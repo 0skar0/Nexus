@@ -222,6 +222,7 @@ function init() {
     localStorage.removeItem("mapIcon");
   }
 
+  // Get item from localStorage
   let mapIcon = localStorage.getItem("mapIcon");
 
   // Special item for countdown
@@ -255,6 +256,7 @@ function init() {
     }
   }
 
+  // Get username from localStorage
   let userName = localStorage.getItem("userName");
 
   // Creating title with callback
