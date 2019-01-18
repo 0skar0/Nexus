@@ -255,22 +255,24 @@ function init() {
     }
   }
 
+  let userName = localStorage.getItem("userName");
+
   // Creating title with callback
   function createTitle(name) {
-    document.getElementById("gametitle").innerHTML = "Labyrinth" + name[0].firstChar + name[1].secondChar + name[2].thirdChar + name[2].fourthChar;
+    document.getElementById("gametitle").innerHTML = "Välkommen till " + name[0].firstChar + name[1].secondChar + name[2].thirdChar + name[2].fourthChar + " " + userName + "!";
   }
 
   function callbackFunction(callback) {
     // Objects in 2D array and object literal
     let name = [{
-      firstChar: " G"
+      firstChar: " Labyrin"
     },
     {
-      secondChar: "a"
+      secondChar: "t"
     },
     {
-      thirdChar: "m",
-      fourthChar: "e"
+      thirdChar: "e",
+      fourthChar: "n"
     }
     ];
     callback(name);
