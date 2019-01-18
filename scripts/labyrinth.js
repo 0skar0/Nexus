@@ -35,29 +35,29 @@ function init() {
   // Merge objects
   let playerCoordinates = Object.assign(firstObject, secondObject);
 
-  // Set canvas size
+  // Set canvas and context
   let canvas = document.getElementById("canvas");
   let ctx = canvas.getContext("2d");
 
-  // Clear and draw background canvas
+  // Draw background canvas
   ctx.fillStyle = "black";
   ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-  // Draw cross
+  // Draw cross on canvas
   let exitImage = new Image();
   exitImage.onload = function() {
     ctx.drawImage(exitImage, 300, 540, 60, 60);
   };
   exitImage.src = "../images/64/x.png";
 
-  // Draw hammer
+  // Draw hammer on canvas
   let hammerImage = new Image();
   hammerImage.onload = function() {
     ctx.drawImage(hammerImage, 0, 360, 60, 60);
   };
   hammerImage.src = "../images/64/hammer.png";
 
-  // Draw poison
+  // Draw poison on canvas
   let greenImage = new Image();
   greenImage.onload = function() {
     ctx.drawImage(greenImage, 300, 360, 60, 60);
