@@ -1,3 +1,7 @@
+// Marcus Andersson - Breakout
+//
+//
+
 // alla variabler
 var canvas = document.getElementById("myCanvas");
 var ctx = canvas.getContext("2d");
