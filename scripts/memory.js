@@ -12,6 +12,10 @@ var cards = [...card];
 var displayMessage;
 var whichMessageToDisplay;
 
+//Välkomnar användaren med sitt username
+var userName = localStorage.getItem("userName");
+$(".greetUser").prepend(`${userName}`);
+
 // Kolla vilket item användaren valt och anpassa instruktioner efter användarens val.
 var userChoice = localStorage.getItem("userChoice");
 if (userChoice == "true") {
