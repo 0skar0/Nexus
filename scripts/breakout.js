@@ -157,9 +157,9 @@ function drawBricks() {
 
 // ritar upp startvyn
 function drawStart() {
-  ctx.font = "20px Charm";
+  ctx.font = "25px Charm, cursive";
   ctx.fillStyle = "#ffffff";
-  ctx.fillText("Tryck på 'Start' för att starta ett nytt spel!", 140, 300);
+  ctx.fillText("Tryck på 'Start' för att starta ett nytt spel!", 100, 300);
 }
 
 
