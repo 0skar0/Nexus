@@ -19,6 +19,7 @@ let randomVal, word, newGameOr, list2 = [],
   backpack,
   tickTock, theDifficulty, status = true,
   music = new Audio('../jbildmusik/backmusic.mp3');
+  ding = new Audio('../jbildmusik/ding.wav')
   castle = new Audio('../jbildmusik/castleDoor.mp3');
   gameOverSound = new Audio('../jbildmusik/gameover.mp3');
   fanfare = new Audio('../jbildmusik/fanfare.mp3');
@@ -135,8 +136,13 @@ function uppdateHiScore() { //ger information till highscorelistan.
 
 }
 
+function correct () { //trevligt litet ding när man slår in rätt ord
+  ding.play();
+}
 
-function playTheMusic() { //sätter på backgrundsmusiken
+function playTheMusic() { //sätter på backgrundsmusiken och loopar.
+  music.loop = true;
+  music.volume = 0.4;
   music.play();
 }
 
@@ -382,6 +388,7 @@ function checkVal() { //själva spelet.
   word.innerHTML = list2[randomVal];
   if (word.innerHTML === inputBox.value) {
     levelup();
+    correct();
     list2.splice(randomVal, 1);
     getRandomNum(); //randomiza nästa ord.
     word.innerHTML = list2[randomVal];
