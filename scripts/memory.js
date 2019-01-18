@@ -219,6 +219,7 @@ function scoreFunction() {
 // om man klarat spelet körs denna funktion
 function winner() {
   if (matchedCard.length >= 8) {
+    $("header").remove();
     localStorage.removeItem("userChoice");
     removeListeners();
     var getContainer = document.querySelector("#container");
@@ -239,6 +240,7 @@ function winner() {
 // om man inte klarat spelet körs denna.
 function tryAgain() {
   localStorage.clear();
+  $("header").remove();
   var getStartButton = document.querySelector(".startButton");
   getStartButton.innerHTML = "Börja om!";
   var getLoserBox = document.querySelector(".winner-box");
