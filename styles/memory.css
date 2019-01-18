@@ -23,7 +23,7 @@ header {
   padding: 10px;
 }
 
-header h1 {
+h1 {
   font-family: "Charm", serif;
   margin-bottom: 0;
   color: white;
@@ -40,6 +40,13 @@ h3 {
 
 .winningPoints, .numberOfMoves {
   display: inline;
+}
+
+.winner-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: white;
 }
 
 button {
