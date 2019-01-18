@@ -9,7 +9,7 @@ var dx = 2.5;
 var dy = -2.5;
 
 var paddleHeight = 8;
-var paddleWidth = 90;
+var paddleWidth = 100;
 var paddleX = (canvas.width-paddleWidth)/2;
 
 var rightPressed = false;
@@ -159,7 +159,7 @@ function drawBricks() {
 function drawStart() {
   ctx.font = "20px Charm";
   ctx.fillStyle = "#ffffff";
-  ctx.fillText("Tryck på 'Start' för att starta ett nytt spel!", 140, 200);
+  ctx.fillText("Tryck på 'Start' för att starta ett nytt spel!", 140, 300);
 }
 
 
@@ -267,6 +267,7 @@ function collisionDetection() {
             finalScore.style.fontFamily = "Charm, cursive";
             finalScore.style.fontSize = "25px";
             finalScore.style.textAlign = "center";
+            finalScore.style.color = "white";
             showNext();
             localStorage.removeItem("bowIcon");
           }
@@ -315,8 +316,9 @@ function draw() {
         endScore.style.fontFamily = "Charm, cursive";
         endScore.style.fontSize = "25px";
         endScore.style.textAlign = "center";
+        endScore.style.color = "white";
         showRestart();
-        localStorage.removeItem("bowIcon");
+        localStorage.clear();
       }
       else {
         x = canvas.width/2;

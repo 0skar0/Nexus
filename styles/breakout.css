@@ -1,5 +1,8 @@
 body {
   font-family: "Charm", cursive;
+  background-image: url(http://starkovtattoo.spb.ru/images/600/DSC100625745.jpg);
+  background-size: 100%;
+
 }
 
 #next, #restart {
@@ -33,15 +36,16 @@ body {
 #knappar {
   display: flex;
   flex-direction: column;
+  margin: 5px;
 }
 
 button {
   font-family: "Charm", cursive;
+  margin: 3px;
 }
 
   canvas {
-    border-left: 1px solid grey;
-    border-right: 1px solid grey;
-    border-top: 1px solid grey;
-    background-image: url(https://static01.nyt.com/images/2016/03/22/science/22TB-Equinox/22TB-Equinox-articleLarge.jpg?quality=75&auto=webp&disable=upscale);
+    border-left: 2px solid grey;
+    border-right: 2px solid grey;
+    border-top: 2px solid grey;
   }
